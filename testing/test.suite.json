@@ -1,0 +1,131 @@
+[
+    {
+        "name": "Create multiple key values",
+        "calls": [
+            {
+                "on": {
+                    "method": "POST",
+                    "url": "/first",
+                    "body": {
+                        "value": "Hello first"
+                    }
+                },
+                "expect": {
+                    "statusCode": 202
+                }
+            },
+            {
+                "on": {
+                    "method": "GET",
+                    "url": "/fetch/first"
+                },
+                "expect": {
+                    "statusCode": 200,
+                    "body": {
+                        "value": "Hello first"
+                    }
+                }
+            },
+            {
+                "on": {
+                    "method": "POST",
+                    "url": "/second",
+                    "body": {
+                        "value": "Hello second"
+                    }
+                },
+                "expect": {
+                    "statusCode": 202
+                }
+            },
+            {
+                "on": {
+                    "method": "GET",
+                    "url": "/fetch/second"
+                },
+                "expect": {
+                    "statusCode": 200,
+                    "body": {
+                        "value": "Hello second"
+                    }
+                }
+            },
+            {
+                "on": {
+                    "method": "POST",
+                    "url": "/third",
+                    "body": {
+                        "value": "Hello third"
+                    }
+                },
+                "expect": {
+                    "statusCode": 202
+                }
+            },
+            {
+                "on": {
+                    "method": "GET",
+                    "url": "/fetch/third"
+                },
+                "expect": {
+                    "statusCode": 200,
+                    "body": {
+                        "value": "Hello third"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "name": "Test delete",
+        "calls": [
+            {
+                "on": {
+                    "method": "DELETE",
+                    "url": "/first"
+                },
+                "expect": {
+                    "statusCode": 202
+                }
+            },
+            {
+                "on": {
+                    "method": "GET",
+                    "url": "/fetch/first"
+                },
+                "expect": {
+                    "statusCode": 404
+                }
+            }
+        ]
+    },
+    {
+        "name": "Test Update",
+        "calls": [
+            {
+                "on": {
+                    "method": "POST",
+                    "url": "/second",
+                    "body": {
+                        "value": "Updated second"
+                    }
+                },
+                "expect": {
+                    "statusCode": 202
+                }
+            },
+            {
+                "on": {
+                    "method": "GET",
+                    "url": "/fetch/second"
+                },
+                "expect": {
+                    "statusCode": 200,
+                    "body": {
+                        "value": "Updated second"
+                    }
+                }
+            }
+        ]
+    }
+]
