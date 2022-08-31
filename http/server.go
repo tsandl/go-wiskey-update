@@ -2,8 +2,8 @@ package http
 
 import (
 	"github.com/gin-gonic/gin"
+	"github.com/tsandl/go-wiskey-update/pkg"
 	"net/http"
-	. "go-wiskey/pkg"
 )
 
 type Value struct {
@@ -14,9 +14,9 @@ func Start(lsm *LsmTree) {
 	router := gin.New()
 	router.GET("/gc", func(c *gin.Context) {
 		err := lsm.CompressVlog()
-		if err != nil{
-			c.JSON(http.StatusInternalServerError,gin.H{"value":"Something went wrong during Gc"})
-		} else{
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"value": "Something went wrong during Gc"})
+		} else {
 			c.Status(http.StatusOK)
 		}
 	})

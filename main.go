@@ -1,9 +1,9 @@
 package main
 
 import (
-	"go-wiskey/cmd"
-	"go-wiskey/http"
-	. "go-wiskey/pkg"
+	"github.com/tsandl/go-wiskey-update/cmd"
+	"github.com/tsandl/go-wiskey-update/http"
+	"github.com/tsandl/go-wiskey-update/pkg"
 )
 
 func main() {
